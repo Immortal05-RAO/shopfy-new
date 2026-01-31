@@ -61,7 +61,7 @@
 
 .footer-brand-title {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(80px, 18vw, 400px);
+    font-size: clamp(40px, 13.5vw, 200px);
     line-height: 0.8;
     text-align: center;
     width: 100%;
@@ -110,6 +110,6 @@
     }
 
     .footer-brand-title {
-        font-size: 22vw;
+        font-size: 15vw;
     }
 }
