@@ -13,7 +13,10 @@
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 40px;
-    margin-bottom: 120px;
+    margin-top: 60px;
+    /* Add space above links */
+    margin-bottom: 20px;
+    /* Reduce bottom space */
 }
 
 .footer-col {
@@ -68,7 +71,8 @@
     margin: 0 auto;
     letter-spacing: -0.04em;
     white-space: nowrap;
-    margin-bottom: -2%;
+    margin-bottom: 40px;
+    /* Add space below title */
     pointer-events: none;
     color: #FFF;
 }
@@ -107,6 +111,7 @@
         flex-direction: column;
         gap: 40px;
         margin-bottom: 60px;
+        margin-top: 40px;
     }
 
     .footer-brand-title {
