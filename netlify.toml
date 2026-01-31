@@ -1,0 +1,15 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = false
+  conditions = {Path = "/index.html"} 
+  # Note: The above redirect is typically for SPAs. 
+  # Since this is an MPA, we mostly rely on direct file matching.
+  # However, for clean URLs (e.g. /product instead of /product.html), Netlify handles .html automatically.
+  # We can add a catch-all if we want 404s to go somewhere custom, or just rely on default behavior.
+  # For now, standard build settings are sufficient. 

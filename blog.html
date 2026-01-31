@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Journal | Raj's Coffee</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/hero-carousel.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <style>
+        body {
+            background-color: #121212;
+            color: #FFF;
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .nav-container {
+            padding: 40px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            color: #FFF;
+            text-decoration: none;
+            font-style: italic;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-link {
+            color: #FFF;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .journal-header {
+            padding: 100px 5% 60px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 60px;
+        }
+
+        .journal-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 80px;
+            margin: 0;
+        }
+
+        .journal-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+            padding: 0 5% 120px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .blog-card {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .blog-card__image img {
+            width: 100%;
+            aspect-ratio: 16/10;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .blog-card__category {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-latte);
+        }
+
+        .blog-card__title {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            margin: 0;
+        }
+
+        .blog-card__link {
+            margin-top: auto;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="nav-container">
+        <a href="index.html" class="logo">Raj's Coffee</a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="collections.html" class="nav-link">Shop</a>
+            <a href="blog.html" class="nav-link active">Journal</a>
+        </div>
+    </nav>
+    <header class="journal-header">
+        <h1 class="journal-title">The Journal</h1>
+    </header>
+    <div class="journal-grid">
+        <a href="article.html?handle=art-of-pour" class="blog-card">
+            <div class="blog-card__image"><img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=600"
+                    alt="Pour over"></div>
+            <div class="blog-card__content">
+                <span class="blog-card__category">Brewing Guide</span>
+                <h2 class="blog-card__title">The Art of the Pour</h2>
+                <span class="blog-card__link">Read Article &rarr;</span>
+            </div>
+        </a>
+        <a href="article.html?handle=sourcing-sustainability" class="blog-card">
+            <div class="blog-card__image"><img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600"
+                    alt="Farm"></div>
+            <div class="blog-card__content">
+                <span class="blog-card__category">Sustainability</span>
+                <h2 class="blog-card__title">Sourcing with Mind</h2>
+                <span class="blog-card__link">Read Article &rarr;</span>
+            </div>
+        </a>
+    </div>
+    <!-- Big Footer -->
+    <footer class="big-footer">
+        <div class="footer-brand-title">RAJ'S COFFEE</div>
+    </footer>
+</body>
+
+</html>

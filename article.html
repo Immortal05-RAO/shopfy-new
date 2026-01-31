@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Journal | Raj's Coffee</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/hero-carousel.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <style>
+        body {
+            background-color: #FAFAFA;
+            color: #121212;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .nav-container {
+            background: #000;
+            padding: 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            color: #FFF;
+            text-decoration: none;
+            font-style: italic;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-link {
+            color: #FFF;
+            text-decoration: none;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .article-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 80px 20px;
+            flex: 1;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .article-category {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: #C19A6B;
+            display: block;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .article-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 56px;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .article-image {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 60px;
+        }
+
+        .article-content {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .article-content blockquote {
+            border-left: 4px solid #C19A6B;
+            margin: 40px 0;
+            padding-left: 24px;
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-style: italic;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="nav-container">
+        <a href="index.html" class="logo">Raj's Coffee</a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="collections.html" class="nav-link">Shop</a>
+            <a href="blog.html" class="nav-link">Journal</a>
+        </div>
+    </nav>
+    <main class="article-container" id="article-main"></main>
+    <footer class="big-footer">
+        <div class="footer-brand-title">RAJ'S COFFEE</div>
+    </footer>
+    <script>
+        const articles = {
+            'art-of-pour': {
+                title: "The Art of the Pour",
+                category: "Brewing Guide",
+                date: "Oct 12, 2025",
+                image: "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=1351",
+                content: `<p>There is a moment of stillness just before the water hits the grounds...</p><h2>Consistency is Key</h2><p>Why does your morning cup sometimes taste divine?</p>`
+            },
+            'sourcing-sustainability': {
+                title: "Sourcing with Sustainability",
+                category: "Behind the Beans",
+                date: "Sept 28, 2025",
+                image: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=1267",
+                content: `<p>Great coffee starts at the source...</p><blockquote>"Sustainability isn't a buzzword."</blockquote>`
+            }
+        };
+        const handle = new URLSearchParams(window.location.search).get('handle');
+        const main = document.getElementById('article-main');
+        if (handle && articles[handle]) {
+            const art = articles[handle];
+            main.innerHTML = `
+               <div class="article-header">
+                   <span class="article-category">\${art.category}</span>
+                   <h1 class="article-title">\${art.title}</h1>
+                   <div class="article-meta">\${art.date}</div>
+               </div>
+               <img src="\${art.image}" class="article-image">
+               <article class="article-content">\${art.content}</article>
+           `;
+        }
+    </script>
+</body>
+
+</html>

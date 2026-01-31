@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop | Raj's Coffee</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/hero-carousel.css">
+    <link rel="stylesheet" href="css/products.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <script type="module" src="https://cdn.shopify.com/storefront/web-components.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            background-color: var(--color-cream);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .nav-container {
+            background: var(--color-espresso);
+            position: relative;
+        }
+
+        .page-header {
+            text-align: center;
+            padding: 120px 20px 60px;
+        }
+
+        .collection-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 64px;
+            margin-bottom: 20px;
+            color: var(--color-espresso);
+        }
+
+        .collection-desc {
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+            color: var(--color-coffee-bean);
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="nav-container">
+        <a href="index.html" class="logo">Raj's Coffee</a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="collections.html" class="nav-link active">Shop</a>
+            <a href="blog.html" class="nav-link">Journal</a>
+        </div>
+        <button onclick="document.getElementById('cart').showModal()"
+            style="background:none; border:none; cursor:pointer; color:#FFF;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path
+                    d="M9 20a1 1 0 100 2 1 1 0 000-2zm9 0a1 1 0 100 2 1 1 0 000-2zM1 1h2.79l1.9 15h13.1l1.2-11H5.25" />
+            </svg>
+        </button>
+    </nav>
+
+    <shopify-store store-domain="rb6pqp-6r.myshopify.com" access-token="a31837b30db5329a3a4e58968889ce91" country="IN"
+        language="EN">
+        <shopify-context type="collection" handle="frontpage">
+            <div class="page-header">
+                <h1 class="collection-title"><shopify-data query="collection.title"></shopify-data></h1>
+                <p class="collection-desc"><shopify-data query="collection.description"></shopify-data></p>
+            </div>
+
+            <section class="products-section" style="padding-top: 0;">
+                <div class="products-grid">
+                    <!-- Note: modifying query to collection.products -->
+                    <shopify-list-context type="product" query="collection.products" first="12">
+                        <template>
+                            <div class="product-card">
+                                <a shopify-attr--href="'product.html?handle=' + product.handle"
+                                    style="display:block; text-decoration:none;">
+                                    <shopify-media query="product.featuredImage" class="product-card__image"
+                                        style="width:100%; aspect-ratio:1; object-fit:cover;"></shopify-media>
+                                    <div class="product-card__content">
+                                        <div class="product-card__title"><shopify-data
+                                                query="product.title"></shopify-data></div>
+                                        <div class="product-card__price"><shopify-money
+                                                query="product.selectedOrFirstAvailableVariant.price"></shopify-money>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </template>
+                    </shopify-list-context>
+                </div>
+            </section>
+        </shopify-context>
+        <shopify-cart id="cart"></shopify-cart>
+    </shopify-store>
+
+    <footer class="big-footer">
+        <div class="footer-top">
+            <div class="footer-col">
+                <h4>Services</h4><a href="#">Wholesale</a><a href="#">Subscriptions</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4><a href="#">Support</a><a href="#">Careers</a>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4><a href="#">Instagram</a><a href="#">Twitter</a>
+            </div>
+            <div class="footer-col">
+                <h4>Pay Safely</h4>
+                <div class="payment-icons"><span>VISA</span><span>MC</span></div>
+            </div>
+        </div>
+        <div class="footer-brand-title">RAJ'S COFFEE</div>
+        <div class="footer-bottom"><button class="chat-btn">Chat with us</button></div>
+    </footer>
+
+    <script>
+        const lenis = new Lenis();
+        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+        requestAnimationFrame(raf);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details | Raj's Coffee</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/hero-carousel.css">
+    <link rel="stylesheet" href="css/products.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <script type="module" src="https://cdn.shopify.com/storefront/web-components.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    <style>
+        body {
+            background-color: var(--color-cream);
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .nav-container {
+            background: var(--color-espresso);
+            position: relative;
+        }
+
+        .product-page {
+            padding: 80px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .product-gallery {
+            position: sticky;
+            top: 120px;
+        }
+
+        .product-gallery shopify-media {
+            width: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            aspect-ratio: 1;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding-top: 20px;
+        }
+
+        .product-vendor {
+            font-size: 13px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--color-latte);
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .product-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 56px;
+            line-height: 1.1;
+            margin: 0 0 24px;
+            color: var(--color-espresso);
+        }
+
+        .product-price {
+            font-family: var(--font-mono);
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--color-caramel);
+            margin-bottom: 32px;
+            display: block;
+        }
+
+        .product-desc {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--color-coffee-bean);
+            margin-bottom: 40px;
+        }
+
+        .btn-add,
+        .btn-buy {
+            width: 100%;
+            padding: 20px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 16px;
+        }
+
+        .btn-add {
+            background: var(--color-espresso);
+            color: #FFF;
+            border: 1px solid var(--color-espresso);
+        }
+
+        .btn-add:hover {
+            background: transparent;
+            color: var(--color-espresso);
+        }
+
+        .btn-buy {
+            background: transparent;
+            color: var(--color-espresso);
+            border: 1px solid var(--color-espresso);
+        }
+
+        .btn-buy:hover {
+            background: var(--color-vanilla);
+            border-color: var(--color-vanilla);
+        }
+
+        @media (max-width: 900px) {
+            .product-page {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .product-gallery {
+                position: static;
+            }
+
+            .product-title {
+                font-size: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="nav-container">
+        <a href="index.html" class="logo">Raj's Coffee</a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="collections.html" class="nav-link active">Shop</a>
+            <a href="blog.html" class="nav-link">Journal</a>
+        </div>
+        <button onclick="document.getElementById('cart').showModal()"
+            style="background:none; border:none; cursor:pointer; color:#FFF;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path
+                    d="M9 20a1 1 0 100 2 1 1 0 000-2zm9 0a1 1 0 100 2 1 1 0 000-2zM1 1h2.79l1.9 15h13.1l1.2-11H5.25" />
+            </svg>
+        </button>
+    </nav>
+
+    <shopify-store store-domain="rb6pqp-6r.myshopify.com" access-token="a31837b30db5329a3a4e58968889ce91" country="IN"
+        language="EN">
+        <div id="product-context-container"></div>
+        <shopify-cart id="cart"></shopify-cart>
+    </shopify-store>
+
+    <footer class="big-footer">
+        <div class="footer-top">
+            <div class="footer-col">
+                <h4>Services</h4>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+            </div>
+            <div class="footer-col">
+                <h4>Pay Safely</h4>
+                <div class="payment-icons"><span>VISA</span><span>MC</span></div>
+            </div>
+        </div>
+        <div class="footer-brand-title">RAJ'S COFFEE</div>
+    </footer>
+
+    <script>
+        // Get handle from URL
+        const params = new URLSearchParams(window.location.search);
+        const handle = params.get('handle') || 'dark-espresso'; // Default fallback
+
+        const container = document.getElementById('product-context-container');
+
+        // Create the context element dynamically or just set it if we were using a template engine, 
+        // but here we can just inject innerHTML safely since handle is from URL but we trust it for now 
+        // or better, use DOM API.
+
+        container.innerHTML = `
+    <shopify-context type="product" handle="${handle}">
+      <template>
+        <div class="product-page">
+          <div class="product-gallery">
+            <shopify-media query="product.selectedOrFirstAvailableVariant.image"></shopify-media>
+          </div>
+          <div class="product-info">
+             <span class="product-vendor"><shopify-data query="product.vendor"></shopify-data></span>
+             <h1 class="product-title"><shopify-data query="product.title"></shopify-data></h1>
+             <span class="product-price"><shopify-money query="product.selectedOrFirstAvailableVariant.price"></shopify-money></span>
+             
+             <div class="product-desc"><shopify-data query="product.descriptionHtml"></shopify-data></div>
+             
+             <shopify-variant-selector></shopify-variant-selector>
+             <div style="margin-top: 32px;">
+                <button class="btn-add" onclick="document.getElementById('cart').addLine(event).showModal()">Add to Cart</button>
+                <button class="btn-buy" onclick="document.querySelector('shopify-store').buyNow(event)">Buy Now</button>
+             </div>
+          </div>
+        </div>
+      </template>
+    </shopify-context>
+  `;
+
+        const lenis = new Lenis();
+        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+        requestAnimationFrame(raf);
+    </script>
+</body>
+
+</html>
