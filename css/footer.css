@@ -71,8 +71,7 @@
     margin: 0 auto;
     letter-spacing: -0.04em;
     white-space: nowrap;
-    margin-bottom: 40px;
-    /* Add space below title */
+    margin-bottom: -2%;
     pointer-events: none;
     color: #FFF;
 }
