@@ -1,224 +1,302 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Raj's Coffee | Brewed to Perfection</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raj's Coffee | Brewed to Perfection</title>
   <!-- Fonts -->
- <link rel="preconnect" href="https://fonts.googleapis.com">
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
- <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
- <!-- CSS -->
- <link rel="stylesheet" href="css/hero-carousel.css">
- <link rel="stylesheet" href="css/products.css">
- <link rel="stylesheet" href="css/footer.css">
- <style>
-   /* Lenis Smooth Scroll */
-   html.lenis, html.lenis body { height: auto; }
-   .lenis.lenis-smooth { scroll-behavior: auto !important; }
-   .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
-   .lenis.lenis-stopped { overflow: hidden; }
-   .lenis.lenis-scrolling iframe { pointer-events: none; }
-   /* Nav */
-   .nav-container {
-       position: absolute; top: 0; width: 100%; z-index: 100;
-       padding: 40px 60px; display: flex; justify-content: space-between;
-       align-items: center; box-sizing: border-box; pointer-events: none;
-   }
-   .nav-container > * { pointer-events: auto; }
-   .logo {
-       font-family: 'Playfair Display', serif; font-size: 32px;
-       font-weight: 700; color: #FFF; text-decoration: none; font-style: italic;
-   }
-   .nav-links { display: flex; gap: 40px; }
-   .nav-link {
-       color: #FFF; text-decoration: none; font-size: 14px; font-weight: 500;
-       letter-spacing: 0.05em; text-transform: uppercase; opacity: 0.8;
-       transition: opacity 0.3s;
-   }
-   .nav-link:hover, .nav-link.active { opacity: 1; }
-   /* Video Sections */
-   .premium-video-section {
-       position: relative; height: 80vh; min-height: 600px;
-       overflow: hidden; display: flex; align-items: center;
-       justify-content: center; color: #FFF;
-   }
-   .premium-video-bg {
-       position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-       object-fit: cover; z-index: 0;
-   }
-   .premium-overlay {
-       position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-       background: rgba(0, 0, 0, 0.4); z-index: 1;
-   }
-   .premium-content {
-       position: relative; z-index: 2; text-align: center;
-       max-width: 800px; padding: 0 20px;
-   }
-   .premium-label {
-       font-family: 'Inter', sans-serif; font-size: 13px; letter-spacing: 0.2em;
-       text-transform: uppercase; font-weight: 600; color: var(--color-caramel);
-       display: block; margin-bottom: 24px;
-   }
-   .premium-headline {
-       font-family: 'Playfair Display', serif; font-size: 64px; line-height: 1.1;
-       margin-bottom: 32px; font-style: italic;
-   }
-   .premium-text {
-       font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.6;
-       max-width: 600px; margin: 0 auto;
-   }
- </style>
- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
- <script type="module" src="js/carousel.js"></script>
- <script type="module" src="https://cdn.shopify.com/storefront/web-components.js"></script>
- <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/hero-carousel.css">
+  <link rel="stylesheet" href="css/products.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <style>
+    /* Lenis Smooth Scroll */
+    html.lenis,
+    html.lenis body {
+      height: auto;
+    }
+
+    .lenis.lenis-smooth {
+      scroll-behavior: auto !important;
+    }
+
+    .lenis.lenis-smooth [data-lenis-prevent] {
+      overscroll-behavior: contain;
+    }
+
+    .lenis.lenis-stopped {
+      overflow: hidden;
+    }
+
+    .lenis.lenis-scrolling iframe {
+      pointer-events: none;
+    }
+
+    /* Nav */
+    .nav-container {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      padding: 40px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-sizing: border-box;
+      pointer-events: none;
+    }
+
+    .nav-container>* {
+      pointer-events: auto;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: #FFF;
+      text-decoration: none;
+      font-style: italic;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 40px;
+    }
+
+    .nav-link {
+      color: #FFF;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      opacity: 0.8;
+      transition: opacity 0.3s;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      opacity: 1;
+    }
+
+    /* Video Sections */
+    .premium-video-section {
+      position: relative;
+      height: 80vh;
+      min-height: 600px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFF;
+    }
+
+    .premium-video-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .premium-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+    }
+
+    .premium-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 800px;
+      padding: 0 20px;
+    }
+
+    .premium-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--color-caramel);
+      display: block;
+      margin-bottom: 24px;
+    }
+
+    .premium-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: 64px;
+      line-height: 1.1;
+      margin-bottom: 32px;
+      font-style: italic;
+    }
+
+    .premium-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script type="module" src="js/carousel.js"></script>
+  <script type="module" src="https://cdn.shopify.com/storefront/web-components.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
 </head>
+
 <body>
- <!-- Nav -->
- <nav class="nav-container">
-   <a href="index.html" class="logo">Raj's Coffee</a>
-   <div class="nav-links">
-     <a href="index.html" class="nav-link active">Home</a>
-     <a href="collections.html" class="nav-link">Shop</a>
-     <a href="blog.html" class="nav-link">Journal</a>
-   </div>
-   <button onclick="document.getElementById('cart').showModal()" style="background:none; border:none; cursor:pointer; color:#FFF;">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 20a1 1 0 100 2 1 1 0 000-2zm9 0a1 1 0 100 2 1 1 0 000-2zM1 1h2.79l1.9 15h13.1l1.2-11H5.25"/></svg>
-   </button>
- </nav>
- <!-- Lenis Init -->
- <script>
-   const lenis = new Lenis();
-   function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-   requestAnimationFrame(raf);
- </script>
- <!-- HERO -->
- <section id="hero-carousel" class="hero-carousel">
-   <div class="carousel-container">
-     <!-- Slide 1 -->
-     <div class="carousel-slide active" data-slide="0">
-       <video class="carousel-video" autoplay loop muted playsinline><source src="videos/dark-espresso-shot.mp4" type="video/mp4"></video>
-       <div class="carousel-content-split">
-         <div class="hero-top-left">
-           <p class="carousel-label">SIGNATURE BLEND</p>
-           <h1 class="carousel-headline">Dark Espresso</h1>
-           <p class="carousel-tagline">Bold, intense, unforgettable.</p>
-         </div>
-         <div class="hero-bottom-right">
-           <p class="carousel-description">Rich Arabica beans roasted to perfection.</p>
-           <div class="carousel-price"><span class="price-amount">₹899</span><span class="price-unit">per 250g</span></div>
-           <div class="carousel-cta"><button class="btn-primary" onclick="scrollToProducts('dark-espresso')">Shop Now</button></div>
-         </div>
-       </div>
-     </div>
-     <!-- Slide 2 -->
-     <div class="carousel-slide" data-slide="1">
-       <video class="carousel-video" loop muted playsinline><source src="videos/vanilla-french-complete.mp4" type="video/mp4"></video>
-       <div class="carousel-content-split">
-         <div class="hero-top-left">
-           <p class="carousel-label">PREMIUM ROAST</p>
-           <h1 class="carousel-headline">Vanilla French</h1>
-           <p class="carousel-tagline">Smooth, sweet, elegant.</p>
-         </div>
-         <div class="hero-bottom-right">
-            <div class="carousel-price"><span class="price-amount">₹999</span></div>
-            <div class="carousel-cta"><button class="btn-primary" onclick="scrollToProducts('vanilla-french')">Shop Now</button></div>
-         </div>
-       </div>
-     </div>
-     <!-- Slide 3 -->
-     <div class="carousel-slide" data-slide="2">
-       <video class="carousel-video" loop muted playsinline><source src="videos/hazelnut-brew-complete.mp4" type="video/mp4"></video>
+  <!-- Nav -->
+  <nav class="nav-container">
+    <a href="index.html" class="logo">Raj's Coffee</a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link active">Home</a>
+      <a href="collections.html" class="nav-link">Shop</a>
+      <a href="blog.html" class="nav-link">Journal</a>
+    </div>
+    <button onclick="document.getElementById('cart').showModal()"
+      style="background:none; border:none; cursor:pointer; color:#FFF;">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M9 20a1 1 0 100 2 1 1 0 000-2zm9 0a1 1 0 100 2 1 1 0 000-2zM1 1h2.79l1.9 15h13.1l1.2-11H5.25" />
+      </svg>
+    </button>
+  </nav>
+  <!-- Lenis Init -->
+  <script>
+    const lenis = new Lenis();
+    function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+    requestAnimationFrame(raf);
+  </script>
+  <!-- HERO -->
+  <section id="hero-carousel" class="hero-carousel">
+    <div class="carousel-container">
+      <!-- Slide 1 -->
+      <div class="carousel-slide active" data-slide="0">
+        <video class="carousel-video" autoplay loop muted playsinline>
+          <source src="videos/dark-espresso-shot.mp4" type="video/mp4">
+        </video>
         <div class="carousel-content-split">
-         <div class="hero-top-left">
-           <p class="carousel-label">SEASONAL</p>
-           <h1 class="carousel-headline">Hazelnut Brew</h1>
-         </div>
+          <div class="hero-top-left">
+            <p class="carousel-label">SIGNATURE BLEND</p>
+            <h1 class="carousel-headline">Dark Espresso</h1>
+            <p class="carousel-tagline">Bold, intense, unforgettable.</p>
+          </div>
           <div class="hero-bottom-right">
-            <div class="carousel-price"><span class="price-amount">₹999</span></div>
-            <div class="carousel-cta"><button class="btn-primary" onclick="scrollToProducts('hazelnut-brew')">Shop Now</button></div>
-         </div>
-       </div>
-     </div>
-   </div>
-   <!-- Nav Arrows & Pagination -->
-   <button class="carousel-nav carousel-nav--prev" onclick="prevSlide()"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18L9 12L15 6"/></svg></button>
-   <button class="carousel-nav carousel-nav--next" onclick="nextSlide()"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6L15 12L9 18"/></svg></button>
-   <div class="carousel-pagination">
-     <button class="pagination-dot active" onclick="goToSlide(0)"></button>
-     <button class="pagination-dot" onclick="goToSlide(1)"></button>
-     <button class="pagination-dot" onclick="goToSlide(2)"></button>
-   </div>
- </section>
- <!-- THE ROAST -->
- <section class="premium-video-section">
-   <video class="premium-video-bg" autoplay loop muted playsinline><source src="videos/coffee-roasting.mp4" type="video/mp4"></video>
-   <div class="premium-overlay" style="background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.8));"></div>
-   <div class="premium-content">
-     <span class="premium-label">THE PROCESS</span>
-     <h2 class="premium-headline">Masterfully Roasted</h2>
-     <p class="premium-text">We coax out the hidden flavors of every bean. The heat is our brush, the bean our canvas.</p>
-   </div>
- </section>
- <!-- THE GRIND -->
- <section class="premium-video-section" style="height: 60vh;">
-   <video class="premium-video-bg" autoplay loop muted playsinline><source src="videos/coffee-grinding.mp4" type="video/mp4"></video>
-   <div class="premium-overlay" style="background: rgba(0,0,0,0.3);"></div>
-   <div class="premium-content" style="text-align: left; margin-left: 0; max-width: 1200px; width: 100%;">
+            <p class="carousel-description">Rich Arabica beans roasted to perfection.</p>
+            <div class="carousel-price"><span class="price-amount">₹899</span><span class="price-unit">per 250g</span>
+            </div>
+            <div class="carousel-cta"><button class="btn-primary" onclick="scrollToProducts('dark-espresso')">Shop
+                Now</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Nav Arrows & Pagination -->
+  </section>
+  <!-- THE ROAST -->
+  <section class="premium-video-section">
+    <video class="premium-video-bg" autoplay loop muted playsinline>
+      <source src="videos/coffee-roasting.mp4" type="video/mp4">
+    </video>
+    <div class="premium-overlay" style="background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.8));"></div>
+    <div class="premium-content">
+      <span class="premium-label">THE PROCESS</span>
+      <h2 class="premium-headline">Masterfully Roasted</h2>
+      <p class="premium-text">We coax out the hidden flavors of every bean. The heat is our brush, the bean our canvas.
+      </p>
+    </div>
+  </section>
+  <!-- THE GRIND -->
+  <section class="premium-video-section" style="height: 60vh;">
+    <video class="premium-video-bg" autoplay loop muted playsinline>
+      <source src="videos/coffee-grinding.mp4" type="video/mp4">
+    </video>
+    <div class="premium-overlay" style="background: rgba(0,0,0,0.3);"></div>
+    <div class="premium-content" style="text-align: left; margin-left: 0; max-width: 1200px; width: 100%;">
       <div style="max-width: 500px;">
-       <span class="premium-label" style="color:#FFF;">PRECISION</span>
-       <h2 class="premium-headline" style="font-size: 64px;">The Perfect Grind</h2>
-     </div>
-   </div>
- </section>
- <!-- PRODUCTS -->
- <section id="products" class="products-section">
-   <div class="container">
-     <div class="section-header">
-       <p class="section-label">OUR COLLECTION</p>
-       <h2 class="section-headline">Discover Our Coffees</h2>
-     </div>
-     <div class="products-grid">
-        <shopify-store store-domain="rb6pqp-6r.myshopify.com" access-token="a31837b30db5329a3a4e58968889ce91" country="IN" language="EN">
-           <shopify-list-context type="product" query="products" first="4">
-             <template>
-               <div class="product-card">
-                 <a shopify-attr--href="'product.html?handle=' + product.handle" style="display:block; text-decoration:none;">
-                   <shopify-media query="product.featuredImage" class="product-card__image" style="width:100%; aspect-ratio:1; object-fit:cover;"></shopify-media>
-                   <div class="product-card__content">
-                       <div class="product-card__title"><shopify-data query="product.title"></shopify-data></div>
-                       <div class="product-card__price"><shopify-money query="product.selectedOrFirstAvailableVariant.price"></shopify-money></div>
-                   </div>
-                 </a>
-               </div>
-             </template>
-           </shopify-list-context>
-           <shopify-cart id="cart"></shopify-cart>
+        <span class="premium-label" style="color:#FFF;">PRECISION</span>
+        <h2 class="premium-headline" style="font-size: 64px;">The Perfect Grind</h2>
+      </div>
+    </div>
+  </section>
+  <!-- PRODUCTS -->
+  <section id="products" class="products-section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">OUR COLLECTION</p>
+        <h2 class="section-headline">Discover Our Coffees</h2>
+      </div>
+      <div class="products-grid">
+        <shopify-store store-domain="rb6pqp-6r.myshopify.com" access-token="a31837b30db5329a3a4e58968889ce91"
+          country="IN" language="EN">
+          <shopify-list-context type="product" query="products" first="4">
+            <template>
+              <div class="product-card">
+                <a shopify-attr--href="'product.html?handle=' + product.handle"
+                  style="display:block; text-decoration:none;">
+                  <shopify-media query="product.featuredImage" class="product-card__image"
+                    style="width:100%; aspect-ratio:1; object-fit:cover;"></shopify-media>
+                  <div class="product-card__content">
+                    <div class="product-card__title"><shopify-data query="product.title"></shopify-data></div>
+                    <div class="product-card__price"><shopify-money
+                        query="product.selectedOrFirstAvailableVariant.price"></shopify-money></div>
+                  </div>
+                </a>
+              </div>
+            </template>
+          </shopify-list-context>
+          <shopify-cart id="cart"></shopify-cart>
         </shopify-store>
-     </div>
-   </div>
- </section>
- <!-- THE EXTRACTION -->
- <section class="premium-video-section">
-   <video class="premium-video-bg" autoplay loop muted playsinline><source src="videos/coffee-extraction.mp4" type="video/mp4"></video>
-   <div class="premium-overlay" style="background: radial-gradient(circle, transparent 20%, rgba(0,0,0,0.8) 100%);"></div>
-   <div class="premium-content">
-     <span class="premium-label">LIQUID GOLD</span>
-     <h2 class="premium-headline">The Extraction</h2>
-     <p class="premium-text">The final moment of truth. Water meets coffee in a delicate dance.</p>
-   </div>
- </section>
- <!-- BIG FOOTER -->
- <footer class="big-footer">
-   <div class="footer-top">
-     <div class="footer-col"><h4>Services</h4><a href="#">Wholesale</a><a href="#">Subscriptions</a></div>
-     <div class="footer-col"><h4>Contact</h4><a href="#">Support</a><a href="#">Careers</a></div>
-     <div class="footer-col"><h4>Connect</h4><a href="#">Instagram</a><a href="#">Twitter</a></div>
-     <div class="footer-col"><h4>Pay Safely</h4><div class="payment-icons"><span>VISA</span><span>MC</span></div></div>
-   </div>
-   <div class="footer-brand-title">RAJ'S COFFEE</div>
-   <div class="footer-bottom"><button class="chat-btn">Chat with us</button></div>
- </footer>
+      </div>
+    </div>
+  </section>
+  <!-- THE EXTRACTION -->
+  <section class="premium-video-section">
+    <video class="premium-video-bg" autoplay loop muted playsinline>
+      <source src="videos/coffee-extraction.mp4" type="video/mp4">
+    </video>
+    <div class="premium-overlay" style="background: radial-gradient(circle, transparent 20%, rgba(0,0,0,0.8) 100%);">
+    </div>
+    <div class="premium-content">
+      <span class="premium-label">LIQUID GOLD</span>
+      <h2 class="premium-headline">The Extraction</h2>
+      <p class="premium-text">The final moment of truth. Water meets coffee in a delicate dance.</p>
+    </div>
+  </section>
+  <!-- BIG FOOTER -->
+  <footer class="big-footer">
+    <div class="footer-top">
+      <div class="footer-col">
+        <h4>Services</h4><a href="#">Wholesale</a><a href="#">Subscriptions</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4><a href="#">Support</a><a href="#">Careers</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4><a href="#">Instagram</a><a href="#">Twitter</a>
+      </div>
+      <div class="footer-col">
+        <h4>Pay Safely</h4>
+        <div class="payment-icons"><span>VISA</span><span>MC</span></div>
+      </div>
+    </div>
+    <div class="footer-brand-title">RAJ'S COFFEE</div>
+    <div class="footer-bottom"><button class="chat-btn">Chat with us</button></div>
+  </footer>
 </body>
+
 </html>
